@@ -9,9 +9,9 @@ import ru.netology.utils.VkUtils
 
 
 object WallService {
-    private var posts = emptyList<Post>().toMutableList()
-    private var comments = emptyList<Comment>().toMutableList()
-    private var reports = emptyList<Report>().toMutableList()
+    private var posts = mutableListOf<Post>()
+    private var comments = mutableListOf<Comment>()
+    private var reports = mutableListOf<Report>()
     private var id = 1
 
     fun add(post: Post): Post {
@@ -29,24 +29,6 @@ object WallService {
         }
         return false
     }
-
-//    private fun findPostById(postId: Int): Post? {
-//        for (post in posts) {
-//            if (post.id == postId) {
-//                return post
-//            }
-//        }
-//        return null
-//    }
-
-//    private fun findCommentById(commentId: Int): Comment? {
-//        for (comment in comments) {
-//            if (comment.id == commentId) {
-//                return comment
-//            }
-//        }
-//        return null
-//    }
 
     fun report(commentId: Int, reason: Int): Report {
         val comment = comments[VkUtils.findIndexById(comments,commentId) ?: throw CommentNotFoundException("No comment with id $commentId")]
