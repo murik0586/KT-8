@@ -2,7 +2,7 @@ package ru.netology
 
 import org.junit.Test
 import org.junit.Assert.*
-import ru.netology.entities.NoteService
+import ru.netology.postAndEntites.NoteService
 import ru.netology.exceptions.*
 import ru.netology.utils.VkUtils
 import java.lang.StringBuilder
