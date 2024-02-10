@@ -222,7 +222,7 @@ class PostTest {
                 1,
                 4,
                 10,
-                "Привет, Мир!",
+                "Привет, Мир!!",
                 donut = CommentDonut(true, " "),
                 1,
                 attachments = arrayOf(),
