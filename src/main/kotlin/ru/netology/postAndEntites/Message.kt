@@ -1,4 +1,4 @@
-package ru.netology.PostAndEntites
+package ru.netology.postAndEntites
 
 data class Message(
     override val id: Int,

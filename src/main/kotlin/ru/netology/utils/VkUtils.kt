@@ -1,16 +1,17 @@
 package ru.netology.utils
 
-import ru.netology.PostAndEntites.Entity
-import ru.netology.PostAndEntites.User
-
+import ru.netology.postAndEntites.Entity
+import ru.netology.postAndEntites.User
 
 object VkUtils {
-    private var UserId = 0
-    val USER1 = User(UserId++)
-    val USER2 = User(UserId++)
 
-    fun createNewUser(): User {
-        return User(UserId++)
+    private var userId = 0
+    private const val alphabet = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯ"
+    val USER1 = User(++userId, "Ваня", "Петров")
+    val USER2 = User(++userId, "Вася", "Пупкин")
+
+    fun createNewUser(id: Int = ++userId): User {
+        return User(id, "Толя", alphabet[userId % (alphabet.length)].toString() + ".")
     }
 
     fun findIndexById(entities: Collection<Entity>, entityId: Int): Int? {
@@ -20,5 +21,13 @@ object VkUtils {
             return null
         }
         return entities.indexOf(entity)
+    }
+
+    fun getUserById(id: Int): User {
+        return when (id) {
+            1 -> USER1
+            2 -> USER2
+            else -> createNewUser(id)
+        }
     }
 }

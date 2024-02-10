@@ -1,4 +1,4 @@
-package ru.netology.PostAndEntites
+package ru.netology.postAndEntites
 
 import ru.netology.attachments.Attachment
 import ru.netology.exceptions.ReasonNotFoundException
@@ -14,7 +14,7 @@ data class Comment(
     val attachments: Array<Attachment>?,
     val parentsStack: Array<Int>?,
     val thread: CommentThread?
-): Entity
+) : Entity
 
 
 data class CommentThread(

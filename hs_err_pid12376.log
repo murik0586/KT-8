@@ -1,0 +1,199 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 257949696 bytes for Failed to commit area from 0x00000000e0000000 to 0x00000000ef600000 of length 257949696.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3388), pid=12376, tid=22980
+#
+# JRE version:  (11.0.22+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.22+7-LTS, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dcoverage.ignore.private.constructor.util.class=true -Didea.coverage.calculate.hits=false -Didea.coverage.log.level=error -Didea.new.sampling.coverage=true -Didea.new.tracing.coverage=true -Dorg.gradle.internal.worker.tmpdir=C:\Users\79776\ProjectKotlin\KT-8\build\tmp\test\work -Dorg.gradle.native=false -javaagent:C:\Users\79776\AppData\Local\JetBrains\IdeaIC2023.1\testAgent\intellij-coverage-agent-1.0.706.jar=C:\Users\79776\AppData\Local\Temp\coverage4args -javaagent:C:\Users\79776\ProjectKotlin\KT-8\build\tmp\.cache\expanded\zip_a33b649e552c51298e5a242c2f0d0e3c\jacocoagent.jar=destfile=build/jacoco/test.exec,append=true,inclnolocationclasses=false,dumponexit=true,output=file,jmx=false -javaagent:C:\Users\79776\ProjectKotlin\KT-8\build\kover\intellij-coverage-agent-1.0.738.jar=C:\Users\79776\ProjectKotlin\KT-8\build\tmp\test\kover-agent.args -Xmx512m -Dfile.encoding=windows-1251 -Duser.country=RU -Duser.language=ru -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 29'
+
+Host: AMD Ryzen 5 4600H with Radeon Graphics         , 12 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Sat Feb 10 05:51:19 2024 RTZ 2 (s 10 , 64 bit Build 19041 (10.0.19041.3636) elapsed time: 0.011823 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000211a4b5f800):  JavaThread "Unknown thread" [_thread_in_vm, id=22980, stack(0x0000006b98a00000,0x0000006b98b00000)]
+
+Stack: [0x0000006b98a00000,0x0000006b98b00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x64585a]
+V  [jvm.dll+0x7d9bb9]
+V  [jvm.dll+0x7db2b9]
+V  [jvm.dll+0x7db9a3]
+V  [jvm.dll+0x2694e5]
+V  [jvm.dll+0x642a79]
+V  [jvm.dll+0x636fc5]
+V  [jvm.dll+0x3254fc]
+V  [jvm.dll+0x325382]
+V  [jvm.dll+0x329f56]
+V  [jvm.dll+0x3723d2]
+V  [jvm.dll+0x371e31]
+V  [jvm.dll+0x300c38]
+V  [jvm.dll+0x301d35]
+V  [jvm.dll+0x7b2cf7]
+V  [jvm.dll+0x7b44bf]
+V  [jvm.dll+0x37f7f9]
+V  [jvm.dll+0x794e9f]
+V  [jvm.dll+0x3f02b7]
+V  [jvm.dll+0x3f27a1]
+C  [jli.dll+0x52ef]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000211a49719f0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000211a4b71800 GCTaskThread "GC Thread#0" [stack: 0x0000006b98b00000,0x0000006b98c00000] [id=6724]
+  0x00000211a4b8f800 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000006b98c00000,0x0000006b98d00000] [id=9880]
+  0x00000211a4b92800 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000006b98d00000,0x0000006b98e00000] [id=16840]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffcf8761677]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000211a4b5bb70] Heap_lock - owner thread: 0x00000211a4b5f800
+
+Heap address: 0x00000000e0000000, size: 512 MB, Compressed Oops mode: Non-zero based: 0x00000000e0000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.007 Loaded shared library C:\Users\79776\.jdks\corretto-11.0.22\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff79b220000 - 0x00007ff79b22e000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\java.exe
+0x00007ffd3f710000 - 0x00007ffd3f908000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd3eb70000 - 0x00007ffd3ec2d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd3d1e0000 - 0x00007ffd3d4d6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd3cec0000 - 0x00007ffd3cfc0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd2a470000 - 0x00007ffd2a48b000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\VCRUNTIME140.dll
+0x00007ffd2a550000 - 0x00007ffd2a567000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\jli.dll
+0x00007ffd3e2e0000 - 0x00007ffd3e47e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd3ce90000 - 0x00007ffd3ceb2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd27950000 - 0x00007ffd27bea000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ffd3e4b0000 - 0x00007ffd3e4dc000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd3d760000 - 0x00007ffd3d7fe000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd3cfc0000 - 0x00007ffd3d0da000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd3d640000 - 0x00007ffd3d6dd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd3e480000 - 0x00007ffd3e4b0000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffd30ea0000 - 0x00007ffd30eac000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\vcruntime140_1.dll
+0x00007ffd12ea0000 - 0x00007ffd12f2d000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\msvcp140.dll
+0x00007ffcf8450000 - 0x00007ffcf9013000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\server\jvm.dll
+0x00007ffd3d800000 - 0x00007ffd3d8b3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd3f530000 - 0x00007ffd3f5cf000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd3dda0000 - 0x00007ffd3dec6000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd3d6e0000 - 0x00007ffd3d707000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffd3f630000 - 0x00007ffd3f638000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffd33120000 - 0x00007ffd33147000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffd36c30000 - 0x00007ffd36c39000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd3ec90000 - 0x00007ffd3ecfb000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd33150000 - 0x00007ffd3315a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd3b5e0000 - 0x00007ffd3b5f2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffd2bf30000 - 0x00007ffd2bf40000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\verify.dll
+0x00007ffd3b3c0000 - 0x00007ffd3b5a4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffd1c220000 - 0x00007ffd1c254000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffd3d0e0000 - 0x00007ffd3d162000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd1af20000 - 0x00007ffd1af48000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\java.dll
+0x00007ffd2bdf0000 - 0x00007ffd2bdfa000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\jimage.dll
+0x00007ffd34d00000 - 0x00007ffd34d0e000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\instrument.dll
+0x00007ffd2a430000 - 0x00007ffd2a448000 	C:\Users\79776\.jdks\corretto-11.0.22\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\79776\.jdks\corretto-11.0.22\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Users\79776\.jdks\corretto-11.0.22\bin\server
+
+VM Arguments:
+jvm_args: -Dcoverage.ignore.private.constructor.util.class=true -Didea.coverage.calculate.hits=false -Didea.coverage.log.level=error -Didea.new.sampling.coverage=true -Didea.new.tracing.coverage=true -Dorg.gradle.internal.worker.tmpdir=C:\Users\79776\ProjectKotlin\KT-8\build\tmp\test\work -Dorg.gradle.native=false -javaagent:C:\Users\79776\AppData\Local\JetBrains\IdeaIC2023.1\testAgent\intellij-coverage-agent-1.0.706.jar=C:\Users\79776\AppData\Local\Temp\coverage4args -javaagent:C:\Users\79776\ProjectKotlin\KT-8\build\tmp\.cache\expanded\zip_a33b649e552c51298e5a242c2f0d0e3c\jacocoagent.jar=destfile=build/jacoco/test.exec,append=true,inclnolocationclasses=false,dumponexit=true,output=file,jmx=false -javaagent:C:\Users\79776\ProjectKotlin\KT-8\build\kover\intellij-coverage-agent-1.0.738.jar=C:\Users\79776\ProjectKotlin\KT-8\build\tmp\test\kover-agent.args -Xmx512m -Dfile.encoding=windows-1251 -Duser.country=RU -Duser.language=ru -Duser.variant -ea 
+java_command: worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 29'
+java_class_path (initial): C:\\Users\\79776\\.gradle\\caches\\8.0\\workerMain\\gradle-worker.jar;C:\\Users\\79776\\ProjectKotlin\\KT-8\\build\\classes\\kotlin\\test;C:\\Users\\79776\\ProjectKotlin\\KT-8\\build\\classes\\kotlin\\main;C:\\Users\\79776\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-test-junit\\1.9.22\\47497e989262129087f00c8864221e83816ece70\\kotlin-test-junit-1.9.22.jar;C:\\Users\\79776\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-test\\1.9.22\\7ca26b94d39b7b166e3bb08046873bfe98a452ad\\kotlin-test-1.9.22.jar;C:\\Users\\79776\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-stdlib\\1.9.22\\d6c44cd08d8f3f9bece8101216dbe6553365c6e3\\kotlin-stdlib-1.9.22.jar;C:\\Users\\79776\\.gradle\\caches\\modules-2\\files-2.1\\junit\\junit\\4.13.2\\8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12\\junit-4.13.2.jar;C:\\Users\\79776\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains\\annotations\\13.0\\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\\annotations-13.0.jar;C:\\Users\\79776\\.gradle\\caches\\modules-2\\files-2.1\\org.hamcrest\\hamcrest-core\\1.3\\42a25dc3219429f0e5d060061f71acb49bf010a0\\hamcrest-core-1.3.jar;C:\\Users\\79776\\.gradle\\wrapper\\dists\\gradle-8.0-bin\\ca5e32bp14vu59qr306oxotwh\\gradle-8.0\\lib\\junit-4.13.2.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 257949696                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 536870912                                 {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\79776\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.4\bin;;C:\Users\79776\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=User
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+TMP=C:\Users\79776\AppData\Local\Temp
+TEMP=C:\Users\79776\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+OS uptime: 7 days 15:48 hours
+Hyper-V role detected
+
+CPU:total 12 (initial active 12) (12 cores per cpu, 2 threads per core) family 23 model 96 stepping 1 microcode 0x0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, ht, tsc, tscinvbit, tscinv, bmi1, bmi2, adx, sha, fma
+
+Memory: 4k page, system-wide physical 15741M (3012M free)
+TotalPageFile size 20737M (AvailPageFile size 121M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 63M, peak: 309M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.22+7-LTS) for windows-amd64 JRE (11.0.22+7-LTS), built on Jan 10 2024 19:54:00 by "Administrator" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.

@@ -1,9 +1,11 @@
-import org.junit.Assert
+package ru.netology
+
 import org.junit.Test
+import org.junit.Assert.*
 import ru.netology.entities.NoteService
 import ru.netology.exceptions.*
-import ru.netology.utils.*
-
+import ru.netology.utils.VkUtils
+import java.lang.StringBuilder
 
 class NoteTest {
 
@@ -13,15 +15,15 @@ class NoteTest {
         val message = "Message"
         val service = NoteService()
         val id = service.add(title, message, 1, 1)
-        Assert.assertEquals(1, id)
-        Assert.assertEquals(title, service.getById(id).title)
-        Assert.assertEquals(message, service.getById(id).text)
+        assertEquals(1, id)
+        assertEquals(title, service.getById(id).title)
+        assertEquals(message, service.getById(id).text)
         val title2 = "Other Title"
         val message2 = "Other Message"
         val id2 = service.add(title2, message2)
-        Assert.assertEquals(2, id2)
-        Assert.assertEquals(title2, service.getById(id2).title)
-        Assert.assertEquals(message2, service.getById(id2).text)
+        assertEquals(2, id2)
+        assertEquals(title2, service.getById(id2).title)
+        assertEquals(message2, service.getById(id2).text)
     }
 
     @Test(expected = WrongCodeOfPrivacyException::class)
@@ -48,8 +50,8 @@ class NoteTest {
         val commentId = service.createComment(noteId, message)
         val commentList = service.getComments(noteId)
         val commentIndex = VkUtils.findIndexById(commentList, commentId)
-        Assert.assertEquals(message, commentList[commentIndex!!].message)
-        Assert.assertEquals(2, commentId)
+        assertEquals(message, commentList[commentIndex!!].message)
+        assertEquals(2, commentId)
     }
 
     @Test(expected = CommentException::class)
@@ -72,11 +74,11 @@ class NoteTest {
     fun testDelete() {
         val service = NoteService()
         val noteId = createNote(service)
-        Assert.assertTrue(service.delete(noteId))
-        Assert.assertThrows(NoteNotFoundException::class.java) {
+        assertTrue(service.delete(noteId))
+        assertThrows(NoteNotFoundException::class.java) {
             service.get("$noteId")
         }
-        Assert.assertThrows(NoteNotFoundException::class.java) {
+        assertThrows(NoteNotFoundException::class.java) {
             service.getComments(noteId)
         }
     }
@@ -95,8 +97,8 @@ class NoteTest {
         val noteId = createNote(service)
         service.createComment(noteId, message)
         val commentId = service.createComment(noteId, "$message!!!")
-        Assert.assertTrue(service.deleteComment(commentId))
-        Assert.assertNull(VkUtils.findIndexById(service.getComments(noteId), commentId))
+        assertTrue(service.deleteComment(commentId))
+        assertNull(VkUtils.findIndexById(service.getComments(noteId), commentId))
     }
 
     @Test(expected = CommentNotFoundException::class)
@@ -116,7 +118,7 @@ class NoteTest {
         service.createComment(noteId, message)
         val commentId = service.createComment(noteId, "$message!!!")
         service.deleteComment(commentId)
-        Assert.assertThrows(CommentNotFoundException::class.java) {
+        assertThrows(CommentNotFoundException::class.java) {
             service.deleteComment(commentId)
         }
     }
@@ -127,9 +129,9 @@ class NoteTest {
         val noteId = createNote(service)
         val title = "Edited Note"
         val text = "Edited by function testEdit"
-        Assert.assertTrue(service.edit(noteId, title, text))
-        Assert.assertEquals(title, service.getById(noteId).title)
-        Assert.assertEquals(text, service.getById(noteId).text)
+        assertTrue(service.edit(noteId, title, text))
+        assertEquals(title, service.getById(noteId).title)
+        assertEquals(text, service.getById(noteId).text)
     }
 
     @Test(expected = NoteNotFoundException::class)
@@ -149,9 +151,9 @@ class NoteTest {
         service.createComment(noteId, message)
         val commentId = service.createComment(noteId, "$message!!!")
         val newMessage = "Edited Comment"
-        Assert.assertTrue(service.editComment(commentId, newMessage))
+        assertTrue(service.editComment(commentId, newMessage))
         val comments = service.getComments(noteId)
-        Assert.assertEquals(newMessage, comments[VkUtils.findIndexById(comments, commentId)!!].message)
+        assertEquals(newMessage, comments[VkUtils.findIndexById(comments, commentId)!!].message)
     }
 
     @Test(expected = CommentNotFoundException::class)
@@ -195,13 +197,13 @@ class NoteTest {
             Thread.sleep(1000)
         }
         val noteList = service.get(sb.toString(), 0)
-        Assert.assertEquals(4, noteList.size)
+        assertEquals(4, noteList.size)
         for (i in 0 until noteList.size - 1) {
-            Assert.assertTrue(noteList[i].date > noteList[i + 1].date)
+            assertTrue(noteList[i].date > noteList[i + 1].date)
         }
         val noteListSort1 = service.get(sb.toString(), 1)
         for (i in 0 until noteListSort1.size - 1) {
-            Assert.assertTrue(noteListSort1[i].date < noteListSort1[i + 1].date)
+            assertTrue(noteListSort1[i].date < noteListSort1[i + 1].date)
         }
     }
 
@@ -232,8 +234,8 @@ class NoteTest {
             }
         }
         val note = service.getById(id)
-        Assert.assertEquals("Note #2", note.title)
-        Assert.assertEquals("Message #2", note.text)
+        assertEquals("Note #2", note.title)
+        assertEquals("Message #2", note.text)
     }
 
     @Test(expected = NoteNotFoundException::class)
@@ -259,17 +261,17 @@ class NoteTest {
         }
         service.createComment(noteId1, "One more comment")
         val commentList = service.getComments(noteId, 0)
-        Assert.assertEquals(num, commentList.size)
+        assertEquals(num, commentList.size)
         for (i in 0 until commentList.size - 1) {
-            Assert.assertTrue(commentList[i].date > commentList[i + 1].date)
+            assertTrue(commentList[i].date > commentList[i + 1].date)
         }
         val commentList1 = service.getComments(noteId, 1)
-        Assert.assertEquals(num, commentList1.size)
+        assertEquals(num, commentList1.size)
         for (i in 0 until commentList1.size - 1) {
-            Assert.assertTrue(commentList1[i].date < commentList1[i + 1].date)
+            assertTrue(commentList1[i].date < commentList1[i + 1].date)
         }
         service.deleteComment(commentId)
-        Assert.assertEquals(num - 1, service.getComments(noteId).size)
+        assertEquals(num-1, service.getComments(noteId).size)
     }
 
     @Test(expected = NoteNotFoundException::class)
@@ -297,9 +299,9 @@ class NoteTest {
             }
         }
         service.deleteComment(commentId)
-        Assert.assertTrue(service.restoreComment(commentId))
-        Assert.assertNotNull(VkUtils.findIndexById(service.getComments(noteId), commentId))
-        Assert.assertEquals(num, service.getComments(noteId).size)
+        assertTrue(service.restoreComment(commentId))
+        assertNotNull(VkUtils.findIndexById(service.getComments(noteId), commentId))
+        assertEquals(num, service.getComments(noteId).size)
     }
 
     @Test(expected = CommentNotFoundException::class)
@@ -325,7 +327,7 @@ class NoteTest {
         val service = NoteService()
         val noteId = createNote(service)
         val commentId = service.createComment(noteId, "Comment")
-        Assert.assertFalse(service.restoreComment(commentId))
+        assertFalse(service.restoreComment(commentId))
     }
 
     private fun createNote(service: NoteService): Int {
