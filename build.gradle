@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.8.21'
     id 'application'
     id 'jacoco'
+    id 'org.jetbrains.kotlinx.kover' version '0.7.4'
 }
 
 group = 'ru.netology'

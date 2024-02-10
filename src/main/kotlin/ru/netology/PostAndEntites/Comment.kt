@@ -4,7 +4,7 @@ import ru.netology.attachments.Attachment
 import ru.netology.exceptions.ReasonNotFoundException
 
 data class Comment(
-    val id: Int,
+    override val id: Int,
     val fromId: Int,
     val date: Int?,
     val text: String?,
@@ -14,7 +14,7 @@ data class Comment(
     val attachments: Array<Attachment>?,
     val parentsStack: Array<Int>?,
     val thread: CommentThread?
-)
+): Entity
 
 
 data class CommentThread(
@@ -32,12 +32,13 @@ data class CommentDonut(
 )
 
 data class Report(
-    val id: Int,
+    val ownerId: Int,
     val commentId: Int
 ) {
     private var reason: Int? = null
-    private val reasons = arrayOf(0,1,2,3,4,5,6,7,8)
-    constructor(id: Int, commentId: Int,reason:Int): this(id, commentId){
+    private val reasons = arrayOf(0, 1, 2, 3, 4, 5, 6, 8)
+
+    constructor(ownerId: Int, commentId: Int, reason: Int) : this(ownerId, commentId) {
         if (reasons.contains(reason)) {
             this.reason = reason
         } else {

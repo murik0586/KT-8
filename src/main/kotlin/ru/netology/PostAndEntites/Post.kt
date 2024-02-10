@@ -1,10 +1,10 @@
 package ru.netology.Post
 
+import ru.netology.PostAndEntites.Entity
 import ru.netology.attachments.Attachment
 
 data class Post(
-
-    val id: Int,//1 id поста
+    override val id: Int,//1 id поста
     val fromId: Int,//2 id владельца
     val authorName: String,//7
     val contentText: String,//4
@@ -15,7 +15,7 @@ data class Post(
     val canPin: Boolean?,//10. Информация о том, может ли текущий пользователь закрепить запись (1 — может, 0 — не может).
     val copyRight: CopyRight?,
     val attachment: Array<Attachment> = arrayOf(),//11. Закрепленные файлы.
-)
+): Entity
 
 
 
